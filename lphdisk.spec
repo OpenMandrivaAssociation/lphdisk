@@ -1,6 +1,6 @@
 %define name	lphdisk
 %define version	0.9.1
-%define release	2mdk
+%define release	 %mkrel 2
 
 Name:		%{name}
 Version:	%{version}
