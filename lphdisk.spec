@@ -11,7 +11,6 @@ Group:		System/Kernel and hardware
 Patch:		%{name}-0.9.1.source.patch.bz2
 URL:		http://www.procyon.com/~pda/lphdisk
 Source:		http://www.procyon.com/~pda/lphdisk/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%ix86
 
 %description
