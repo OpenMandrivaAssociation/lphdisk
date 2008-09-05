@@ -1,16 +1,13 @@
-%define name	lphdisk
-%define version	0.9.1
-%define release	 %mkrel 3
-
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Summary:	Utility for formatting Phoenix NoteBIOS hibernation partitions under Linux
+Name:		lphdisk
+Version:	0.9.1
+Release:	%{mkrel 4}
+Summary:	Format Phoenix NoteBIOS hibernation partitions under Linux
 License:	Artistic
 Group:		System/Kernel and hardware
-Patch:		%{name}-0.9.1.source.patch.bz2
 URL:		http://www.procyon.com/~pda/lphdisk
-Source:		http://www.procyon.com/~pda/lphdisk/%{name}-%{version}.tar.bz2
+Source0:	http://www.procyon.com/~pda/lphdisk/%{name}-%{version}.tar.bz2
+Patch0:		lphdisk-0.9.1-debian.patch
+Patch1:		lphdisk-0.9.1-lrmi.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%ix86
 
@@ -21,23 +18,27 @@ NoteBIOS hibernation partition (type A0) to make it usable by the BIOS for
 suspending to disk, avoiding the need to use buggy and outdated DOS utilities 
 to perform this configuration step.
 
+PLEASE NOTE: this is a very old tool for very old laptops. Unless you're very
+sure you need it...you probably don't. Move along, nothing to see here.
+
 %prep
 %setup -q
-%patch0 -p0 -b .newgcc
+%patch0 -p1 -b .debian
+%patch1 -p1 -b .lrmi
 
 %build
 %make
 
 %install
-rm -rf ${RPM_BUILD_ROOT}
-mkdir -p ${RPM_BUILD_ROOT}%{_mandir}/man8
-mkdir -p ${RPM_BUILD_ROOT}%{_sbindir}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_mandir}/man8
+mkdir -p %{buildroot}%{_sbindir}
 
-install -m 755 lphdisk ${RPM_BUILD_ROOT}%{_sbindir}
-install -m 644 lphdisk.8 ${RPM_BUILD_ROOT}%{_mandir}/man8
+install -m 755 lphdisk %{buildroot}%{_sbindir}
+install -m 644 lphdisk.8 %{buildroot}%{_mandir}/man8
 
 %clean
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
