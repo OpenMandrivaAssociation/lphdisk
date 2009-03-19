@@ -1,6 +1,6 @@
 Name:		lphdisk
 Version:	0.9.1
-Release:	%{mkrel 4}
+Release:	%mkrel 5
 Summary:	Format Phoenix NoteBIOS hibernation partitions under Linux
 License:	Artistic
 Group:		System/Kernel and hardware
@@ -8,8 +8,8 @@ URL:		http://www.procyon.com/~pda/lphdisk
 Source0:	http://www.procyon.com/~pda/lphdisk/%{name}-%{version}.tar.bz2
 Patch0:		lphdisk-0.9.1-debian.patch
 Patch1:		lphdisk-0.9.1-lrmi.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%ix86
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 lphdisk is a linux reimplementation of the PHDISK.EXE (DOS) utility provided
