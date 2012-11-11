@@ -1,0 +1,16 @@
+--- lphdisk-0.9.1/lrmi-0.6m/lrmi.c	2000-01-18 12:30:07.000000000 -0800
++++ lphdisk-0.9.1/lrmi-0.6m/lrmi.c.new	2008-09-04 23:43:26.000000000 -0700
+@@ -173,6 +173,13 @@
+ #define DEFAULT_STACK_SIZE 	0x1000
+ #define RETURN_TO_32_INT 	255
+ 
++#ifndef IF_MASK
++#define IF_MASK X86_EFLAGS_VIF
++#define IOPL_MASK X86_EFLAGS_IOPL
++#define VIF_MASK X86_EFLAGS_VIF
++#define TF_MASK X86_EFLAGS_TF
++#endif
++
+ static struct
+ 	{
+ 	int ready;
