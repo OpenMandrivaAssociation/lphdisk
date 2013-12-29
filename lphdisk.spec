@@ -1,6 +1,6 @@
 Name:		lphdisk
 Version:	0.9.1
-Release:	6
+Release:	7
 Summary:	Format Phoenix NoteBIOS hibernation partitions under Linux
 License:	Artistic
 Group:		System/Kernel and hardware
