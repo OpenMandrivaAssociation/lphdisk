@@ -4,7 +4,7 @@ Release:	7
 Summary:	Format Phoenix NoteBIOS hibernation partitions under Linux
 License:	Artistic
 Group:		System/Kernel and hardware
-URL:		http://www.procyon.com/~pda/lphdisk
+URL:		https://www.procyon.com/~pda/lphdisk
 Source0:	http://www.procyon.com/~pda/lphdisk/%{name}-%{version}.tar.bz2
 Patch0:		lphdisk-0.9.1-debian.patch
 Patch1:		lphdisk-0.9.1-lrmi.patch
